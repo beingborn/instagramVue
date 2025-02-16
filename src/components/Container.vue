@@ -8,7 +8,7 @@
   </div>
   <!-- 필터선택페이지 -->
    <div v-if="step == 1">  
-      <div class="upload-image"></div>
+      <div class="upload-image" :style="{backgroundImage : `url(${imgUrl})`}"></div>
       <div class="filters">
         <div class="filter-1"></div>
         <div class="filter-1"></div>
@@ -18,15 +18,22 @@
       </div>
    </div>
   
-
-
   <!-- 글작성페이지 -->
   <div v-if="step == 2">
-    <div class="upload-image"></div>
+    <div class="upload-image" :style="{backgroundImage : `url(${imgUrl})`}" ></div>
       <div class="write">
         <textarea class="write-box">write!</textarea>
     </div>
   </div>
+
+  <div class="inline-block rounded-md">
+    안녕
+  </div>
+
+  <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+
 
 </template>
 
@@ -42,6 +49,7 @@ export default {
   props: {
     PostData : Array,
     step : Number,
+    imgUrl : String,
   },
 
   methods : {
