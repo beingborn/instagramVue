@@ -42,6 +42,7 @@ export default {
       step: 0,
       imgUrl: '',
       writeDetail: '',
+      selectedFilter: '',
     }
   },
   methods: {
@@ -63,7 +64,7 @@ export default {
         date: 'May 15',
         liked: false,
         content: this.writeDetail,
-        filter: 'perpetua',
+        filter: this.selectedFilter,
       }
 
       this.PostData.unshift(myPost)
@@ -86,6 +87,11 @@ export default {
           console.log('실패', res)
         })
     },
+  },
+  mounted() {
+    this.emitter.on('filterChange', (a) => {
+      this.selectedFilter = a
+    })
   },
 }
 </script>

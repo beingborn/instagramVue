@@ -4,11 +4,21 @@
     :style="{ backgroundImage: `url(${imgUrl})` }"
   >
     {{ filter }}
+    <slot name="a"></slot>
+    <button @click="fire" class="btn-primary btn-32">필터</button>
   </div>
 </template>
 
 <script>
 export default {
+  name: 'filterbox',
+  methods: {
+    fire() {
+      this.emitter.emit('filterUpload', this.filter)
+      this.emitter.emit('filterChange', this.filter)
+    },
+  },
+
   props: {
     imgUrl: String,
     filter: String,
@@ -26,5 +36,6 @@ export default {
   color: white;
   background-size: cover;
   background-position: center;
+  cursor: pointer;
 }
 </style>

@@ -10,6 +10,7 @@
   <div v-if="step == 1">
     <div
       class="upload-image"
+      :class="selectedFilter"
       :style="{ backgroundImage: `url(${imgUrl})` }"
     ></div>
     <div class="filters">
@@ -18,7 +19,11 @@
         v-for="filter in filters"
         :key="filter"
         :filter="filter"
-      />
+      >
+        <template v-slot:default="name">
+          <span>{{ name }}</span>
+        </template>
+      </FilterBox>
     </div>
   </div>
 
@@ -75,6 +80,8 @@ export default {
         'willow',
         'xpro2',
       ],
+
+      selectedFilter: '',
     }
   },
 
@@ -93,6 +100,12 @@ export default {
     updateClick(num) {
       this.$emit('update-step', num)
     },
+  },
+
+  mounted() {
+    this.emitter.on('filterUpload', (a) => {
+      this.selectedFilter = a
+    })
   },
 }
 </script>
