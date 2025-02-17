@@ -1,20 +1,24 @@
+@use "../constants/colors";
+@use "../mixins/flexbox";
+@use "../mixins/responsive";
+
 .gnb-icon-button {
   $badge-size: 16px;
 
-  @include flexbox;
+  @include flexbox.flexbox;
   position: relative;
   width: 32px;
   height: 32px;
   font-size: 24px;
-  color: $secondary;
+  color: colors.$secondary;
   transition: color 200ms ease-in-out, background-color 300ms ease-in-out;
   border-radius: 50%;
 
   &.is-menu {
-    color: $blue;
+    color: colors.$blue;
 
     &:active {
-      color: $blue-dark;
+      color: colors.$blue-dark;
     }
   }
 
@@ -28,7 +32,7 @@
 
   // 클릭 순간
   &:active {
-    color: $primary;
+    color: colors.$primary;
   }
 
   .badge {
@@ -39,19 +43,19 @@
     right: 0;
     min-width: $badge-size;
     height: $badge-size;
-    background-color: $red;
+    background-color: colors.$red;
     font-size: 10px;
     line-height: 16px;
-    color: $white;
+    color: colors.$white;
     text-align: center;
     letter-spacing: -0.01em;
     border-radius: $badge-size / 2;
   }
 
-  @include responsive(T) {
+  @include responsive.responsive(T) {
     &:hover {
-      background: $blue;
-      color: $white;
+      background: colors.$blue;
+      color: colors.$white;
     }
   }
 }

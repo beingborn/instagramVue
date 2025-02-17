@@ -3,18 +3,13 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
-// import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    vueDevTools(),
-    // tailwindcss(),
-  ],
+  plugins: [vue(), vueDevTools()],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
 
@@ -22,21 +17,19 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData : 
-          ` 
-            @import '@/styles/constants/colors';
-            @import '@/styles/constants/typography';
-            @import '@/styles/constants/breakpoints';
-            @import '@/styles/constants/box-shadows';
-            @import '@/styles/constants/z-indexes';
-
-            @import '@/styles/mixins/text-style';
-            @import '@/styles/mixins/responsive';
-            @import '@/styles/mixins/positions';
-            @import '@/styles/mixins/flexbox';
-            @import '@/styles/mixins/background';
-          `
-      }
-    }
-  }
+        additionalData: ` 
+            @use '@/styles/constants/colors' as colors;
+            @use '@/styles/constants/typography' as typography;
+            @use '@/styles/constants/breakpoints' as breakpoints;
+            @use '@/styles/constants/box-shadows' as box-shadows;
+            @use '@/styles/constants/z-indexes' as z-indexes;
+            @use '@/styles/mixins/text-style' as text-style;
+            @use '@/styles/mixins/responsive' as responsive;
+            @use '@/styles/mixins/positions' as positions;
+            @use '@/styles/mixins/flexbox' as flexbox;
+            @use '@/styles/mixins/background' as background;
+          `,
+      },
+    },
+  },
 })

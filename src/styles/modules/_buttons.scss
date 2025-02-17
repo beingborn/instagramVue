@@ -1,6 +1,9 @@
+@use "../constants/colors";
+@use "../mixins/flexbox";
+
 // styles, sizes, states
 %btn-base {
-  @include inline-flexbox(center, center);
+  @include flexbox.inline-flexbox(center, center);
 
   padding: 0 8px;
   font-weight: 700;
@@ -16,42 +19,42 @@
 // Note: button styles
 .btn-primary {
   @extend %btn-base;
-  color: $white;
-  background-color: $blue;
+  color: colors.$white;
+  background-color: colors.$blue;
 
   &:not(:disabled):hover {
-    background-color: $blue-dark;
+    background-color: colors.$blue-dark;
   }
 }
 
 .btn-secondary {
   @extend %btn-base;
-  color: $primary;
-  background-color: $border;
+  color: colors.$primary;
+  background-color: colors.$border;
 
   &:not(:disabled):hover {
-    background-color: $tertiary;
+    background-color: colors.$tertiary;
   }
 }
 
 .btn-outlined {
   @extend %btn-base;
-  color: $blue;
-  background: $white;
-  border: 1px solid $blue;
+  color: colors.$blue;
+  background: colors.$white;
+  border: 1px solid colors.$blue;
 
   &:not(:disabled):hover {
-    background-color: $blue-light;
+    background-color: colors.$blue-light;
   }
 }
 
 .btn-ghost {
   @extend %btn-base;
-  color: $primary;
+  color: colors.$primary;
   background: transparent;
 
   &:not(:disabled):hover {
-    color: $secondary;
+    color: colors.$secondary;
   }
 }
 

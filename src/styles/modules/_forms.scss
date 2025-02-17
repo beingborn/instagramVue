@@ -1,21 +1,25 @@
+@use "../constants/colors";
+@use "../mixins/positions";
+@use "../mixins/text-style";
+
 %form-base {
-  @include text-style(14, $primary);
+  @include text-style.text-style(14, colors.$primary);
   display: block;
   width: 100%;
   height: 40px;
   padding: 0 16px;
-  background-color: $white;
-  border: 1px solid $border;
+  background-color: colors.$white;
+  border: 1px solid colors.$border;
   border-radius: 4px;
   appearance: none;
   transition: background-color 200ms ease-in-out;
 
   &::placeholder {
-    color: $tertiary;
+    color: colors.$tertiary;
   }
 
   &:not(:disabled):hover {
-    background-color: $background;
+    background-color: colors.$background;
   }
 
   &:disabled {
@@ -35,11 +39,11 @@
 
   &.is-active {
     .form-select {
-      border-color: $blue;
+      border-color: colors.$blue;
     }
 
     .ic-caret {
-      color: $blue;
+      color: colors.$blue;
     }
   }
 
@@ -50,8 +54,8 @@
 
   .ic-caret {
     font-size: 24px;
-    color: $tertiary;
-    @include pos-center-y;
+    color: colors.$tertiary;
+    @include positions.pos-center-y;
     right: 8px;
     pointer-events: none; // 안눌려지게 (이벤트 없애기
   }
@@ -66,9 +70,9 @@
   }
 
   .ic-search {
-    @include pos-center-y;
+    @include positions.pos-center-y;
     left: 10px;
     font-size: 20px;
-    color: $secondary;
+    color: colors.$secondary;
   }
 }

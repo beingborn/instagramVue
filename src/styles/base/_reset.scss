@@ -1,6 +1,9 @@
+@use "../constants/colors";
+@use "../constants/typography";
+
 * {
   margin: 0;
-  font-family: $font-main;
+  font-family: typography.$font-main;
   box-sizing: border-box;
   // 폰트 부드럽게 처리
   -webkit-font-smoothing: antialiased;
@@ -8,14 +11,14 @@
 }
 
 html {
-  font-family: $font-main;
-  font-size: $font-size-16;
+  font-family: typography.$font-main;
+  font-size: typography.$font-size-16;
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: $font-main;
-  color: $primary;
+  font-family: typography.$font-main;
+  color: colors.$primary;
 }
 
 h1 {

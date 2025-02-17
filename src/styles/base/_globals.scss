@@ -1,4 +1,6 @@
-@import '../mixins/responsive';
+@use '../mixins/responsive';
+@use "../constants/breakpoints";
+
 
 // global utility styles
 .visually-hidden {
@@ -17,41 +19,41 @@
 }
 
 .sm-only {
-  @include responsive(T) {
+  @include responsive.responsive(T) {
     display: none !important;
   }
 }
 
 .md-only {
-  @media screen and (max-width: $md-breakpoint - 1px) {
+  @media screen and (max-width: breakpoints.$md-breakpoint - 1px) {
     display: none !important;
   }
 
-  @include responsive(D) {
+  @include responsive.responsive(D) {
     display: none !important;
   }
 }
 
 .lg-only {
-  @media screen and (max-width: $lg-breakpoint - 1) {
+  @media screen and (max-width: breakpoints.$lg-breakpoint - 1) {
     display: none !important;
   }
 }
 
 .sm-hidden {
-  @media screen and (max-width: $md-breakpoint - 1) {
+  @media screen and (max-width: breakpoints.$md-breakpoint - 1) {
     display: none !important;
   }
 }
 
 .md-hidden {
-  @media screen and (min-width: $md-breakpoint) and (max-width: $lg-breakpoint - 1) {
+  @media screen and (min-width: breakpoints.$md-breakpoint) and (max-width: breakpoints.$lg-breakpoint - 1) {
     display: none !important;
   }
 }
 
 .lg-hidden {
-  @media screen and (min-width: $lg-breakpoint) {
+  @media screen and (min-width: breakpoints.$lg-breakpoint) {
     display: none !important;
   }
 }

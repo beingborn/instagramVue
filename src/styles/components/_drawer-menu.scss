@@ -1,3 +1,8 @@
+@use "../constants/colors";
+@use "../mixins/flexbox";
+@use "../mixins/positions";
+@use "../mixins/text-style";
+
 .drawer-menu {
   $drawer-menu-item-height: 36px;
   $community-menu-item-length: 8;
@@ -11,7 +16,7 @@
 
   &.is-active {
     .drawer-menu-button {
-      color: $blue;
+      color: colors.$blue;
     }
   }
   &.is-open {
@@ -47,8 +52,8 @@
   }
 
   &-button {
-    @include text-style(18, $primary);
-    @include flexbox(start);
+    @include text-style.text-style(18, colors.$primary);
+    @include flexbox.flexbox(start);
     position: relative;
     font-weight: 700;
     width: 100%;
@@ -61,15 +66,15 @@
         top: 1px;
         margin-right: 8px;
         font-size: 24px;
-        color: $primary;
+        color: colors.$primary;
       }
     }
 
     .ic-chevron {
-      @include pos-center-y;
+      @include positions.pos-center-y;
       right: 8px;
       font-size: 16px;
-      color: $primary;
+      color: colors.$primary;
       transition: transform 200ms ease-in-out;
     }
   }
@@ -83,13 +88,13 @@
   &-item {
     &.is-active {
       a {
-        color: $blue;
+        color: colors.$blue;
       }
     }
 
     a {
-      @include flexbox(start);
-      @include text-style(14, $primary);
+      @include flexbox.flexbox(start);
+      @include text-style.text-style(14, colors.$primary);
       font-weight: 700;
       width: 100%;
       height: $drawer-menu-item-height;
@@ -100,6 +105,6 @@
 
   .ic-new {
     font-size: 16px;
-    color: $red;
+    color: colors.$red;
   }
 }

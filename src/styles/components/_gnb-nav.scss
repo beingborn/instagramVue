@@ -1,8 +1,12 @@
+@use "../constants/colors";
+@use "../mixins/flexbox";
+@use "../mixins/text-style";
+
 .gnb-nav {
   $padding: 8px;
 
   &-list {
-    @include flexbox(start);
+    @include flexbox.flexbox(start);
     gap: 24px - ($padding * 2);
     margin-left: -#{$padding};
   }
@@ -11,11 +15,11 @@
     &:hover,
     &.is-active {
       a {
-        color: $blue;
+        color: colors.$blue;
       }
     }
     a {
-      @include text-style(18, $primary);
+      @include text-style.text-style(18, colors.$primary);
       font-weight: 700;
       display: block;
       padding: $padding;

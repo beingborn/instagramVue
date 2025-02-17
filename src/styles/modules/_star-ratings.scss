@@ -1,11 +1,14 @@
+@use "../constants/colors";
+@use "../mixins/flexbox";
+
 %star-rating-base {
-  @include flexbox(start);
+  @include flexbox.flexbox(start);
 
   .ic-star {
-    color: $border;
+    color: colors.$border;
 
     &.is-active {
-      color: $blue;
+      color: colors.$blue;
     }
   }
 }

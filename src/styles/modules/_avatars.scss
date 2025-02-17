@@ -1,8 +1,10 @@
+@use "../mixins/background";
+
 %avatar-base {
   display: block;
   overflow: hidden;
   border-radius: 50%;
-  @include background(contain, './assets/images/img-user-default.png');
+  @include background.background(contain, './assets/images/img-user-default.png');
 
   img {
     display: block;

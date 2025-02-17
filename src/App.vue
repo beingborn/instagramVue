@@ -4,84 +4,96 @@
       <li>Cancel</li>
     </ul>
     <ul class="header-button-right">
-      <li>Next</li>
+      <li @click="step++">Next</li>
+      <li @click="publish">글발행</li>
     </ul>
     <img src="./assets/logo.png" class="logo" />
   </div>
-
-  <small>안녕</small>
-
-
-  <Container :PostData = "PostData" :step = "step" @update-step="updateStep" :imgUrl = "imgUrl"/>
+  <Container
+    :PostData="PostData"
+    :step="step"
+    @update-step="updateStep"
+    @write="writeDetail = $event"
+    :imgUrl="imgUrl"
+  />
   <button @click="more()">데이터 가져오기</button>
-
-
   <div class="footer">
     <ul class="footer-button-plus">
       <input type="file" id="file" class="inputfile" @change="upload($event)" />
       <label for="file" class="input-plus">+</label>
     </ul>
- </div>
+  </div>
 </template>
 
 <script>
-
 import Container from './components/Container.vue'
 import PostData from './assets/postData.js'
 import axios from 'axios'
 
 export default {
-  name : 'App',
-  components : {
-    Container : Container
+  name: 'App',
+  components: {
+    Container: Container,
   },
   data() {
     return {
-      PostData : PostData,
-      moreCount : 0,
-      step : 0,
-      imgUrl : '',
+      PostData: PostData,
+      moreCount: 0,
+      step: 0,
+      imgUrl: '',
+      writeDetail: '',
     }
   },
-  methods : {
+  methods: {
+    upload(e) {
+      let file = e.target.files
+      let url = URL.createObjectURL(file[0])
+      this.imgUrl = url
+      this.step++
+    },
+    savecont(content) {
+      this.desc = content
+    },
+    publish() {
+      var myPost = {
+        name: 'Kim Hyun',
+        userImage: 'https://picsum.photos/100?random=1',
+        postImage: this.imgUrl,
+        likes: 36,
+        date: 'May 15',
+        liked: false,
+        content: this.writeDetail,
+        filter: 'perpetua',
+      }
 
-    upload(e){
-      let 파일 = e.target.files;
-      let url = URL.createObjectURL(파일[0]);
-      this.imgUrl = `${url}`
-      this.step++;
+      this.PostData.unshift(myPost)
+      this.step = 0
     },
 
     // 전달 받은 매개변수를 새로운 데이터로 갈아치움
-    updateStep(newStep){
-      this.step = newStep;
+    updateStep(newStep) {
+      this.step = newStep
     },
 
-    more(){
-      axios.get(`https://codingapple1.github.io/vue/more${this.moreCount}.json`)
-        .then(res => {
-        this.PostData.unshift(res.data)
-        this.moreCount++
-      })
-      .catch((res)=> {
-        console.log('실패' , res)
-      })
-    }
+    more() {
+      axios
+        .get(`https://codingapple1.github.io/vue/more${this.moreCount}.json`)
+        .then((res) => {
+          this.PostData.unshift(res.data)
+          this.moreCount++
+        })
+        .catch((res) => {
+          console.log('실패', res)
+        })
+    },
   },
 }
-
-
-
 </script>
 
-<style lang="scss"> 
-
-
-
-
-  body {
-    @include text-style(12, $primary);
-  }
+<style lang="scss">
+body {
+  @include text-style.text-style(16, colors.$primary);
+}
 ul {
   padding: 5px;
   list-style-type: none;
@@ -150,7 +162,7 @@ ul {
 }
 #app {
   box-sizing: border-box;
-  font-family: "consolas";
+  font-family: 'consolas';
   margin-top: 60px;
   width: 100%;
   max-width: 460px;

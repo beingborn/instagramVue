@@ -1,10 +1,16 @@
+@use "../constants/colors";
+@use "../mixins/flexbox";
+@use "../mixins/positions";
+@use "../mixins/responsive";
+@use "../mixins/text-style";
+
 .gnb {
   position: relative;
-  border-bottom: 1px solid $border;
+  border-bottom: 1px solid colors.$border;
 
   &-right {
     .button-group {
-      @include flexbox(end);
+      @include flexbox.flexbox(end);
 
       .gnb-icon-button {
         & + .gnb-icon-button {
@@ -19,11 +25,11 @@
 
   &-wrapper {
     height: 50px;
-    @include flexbox(between);
+    @include flexbox.flexbox(between);
   }
 
   .logo {
-    @include pos-center;
+    @include positions.pos-center;
 
     a {
       display: block;
@@ -36,13 +42,13 @@
     }
   }
 
-  @include responsive(T) {
+  @include responsive.responsive(T) {
     &-left {
-      @include flexbox(start);
+      @include flexbox.flexbox(start);
     }
 
     &-right {
-      @include flexbox(end);
+      @include flexbox.flexbox(end);
 
       .button-group {
         margin-right: 24px;
@@ -55,7 +61,7 @@
           margin-left: 8px;
 
           a {
-            @include text-style(14, $secondary);
+            @include text-style.text-style(14, colors.$secondary);
             font-weight: 700;
             transition: color 200ms ease-in-out;
 
@@ -64,7 +70,7 @@
             }
 
             &:hover {
-              color: $blue;
+              color: colors.$blue;
             }
           }
         }
@@ -93,7 +99,7 @@
     }
   }
 
-  @include responsive(D) {
+  @include responsive.responsive(D) {
     &-right {
       .input-group {
         width: 264px;

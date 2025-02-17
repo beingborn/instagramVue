@@ -1,36 +1,36 @@
 // 변수 최상위 선언
-@import './constants/colors';
-@import './constants/typography';
-@import './constants/breakpoints';
-@import './constants/box-shadows';
-@import './constants/z-indexes';
+@use 'constants/colors';
+@use 'constants/typography';
+@use 'constants/breakpoints';
+@use 'constants/box-shadows';
+@use 'constants/z-indexes';
 
-@import './base/fonts';
-@import './base/nomalize';
-@import './base/reset';
-@import './base/globals';
+@use 'base/fonts';
+@use 'base/nomalize';
+@use 'base/reset';
+@use 'base/globals';
 
-@import './mixins/text-style';
-@import './mixins/responsive';
-@import './mixins/positions';
-@import './mixins/flexbox';
-@import './mixins/background';
+@use 'mixins/text-style';
+@use 'mixins/responsive';
+@use 'mixins/positions';
+@use 'mixins/flexbox';
+@use 'mixins/background';
 
-@import './modules/tags';
-@import './modules/avatars';
-@import './modules/star-ratings';
-@import './modules/buttons';
-@import './modules/forms';
-@import './modules/pagination';
+@use 'modules/tags';
+@use 'modules/avatars';
+@use 'modules/star-ratings';
+@use 'modules/buttons';
+@use 'modules/forms';
+@use 'modules/pagination';
 
-@import './modules/prices';
+@use 'modules/prices';
 
-@import './components/gnb-nav';
-@import './components/gnb-icon-buttons';
-@import './components/my-menu';
-@import './components/drawer-menu';
+@use 'components/gnb-nav';
+@use 'components/gnb-icon-buttons';
+@use 'components/my-menu';
+@use 'components/drawer-menu';
 
-@import './layout/grids';
-@import './layout/gnb';
-@import './layout/sidebar';
-@import './layout/overlay';
+@use 'layout/grids';
+@use 'layout/gnb';
+@use 'layout/sidebar';
+@use 'layout/overlay';

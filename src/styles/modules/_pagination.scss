@@ -1,18 +1,22 @@
+@use "../constants/colors";
+@use "../mixins/flexbox";
+@use "../mixins/text-style";
+
 %page-item-base {
-  @include inline-flexbox;
-  @include text-style(16, $primary);
+  @include flexbox.inline-flexbox;
+  @include text-style.text-style(16, colors.$primary);
   height: 26px;
   font-weight: 700;
-  background-color: $white;
+  background-color: colors.$white;
   border-radius: 4px;
 }
 
 .pagination {
-  @include flexbox;
+  @include flexbox.flexbox;
 
   .page-control {
     @extend %page-item-base;
-    border: 1px solid $border;
+    border: 1px solid colors.$border;
     width: 26px;
 
     &.page-prev {
@@ -41,7 +45,7 @@
   }
 
   .page-list {
-    @include flexbox;
+    @include flexbox.flexbox;
   }
 
   .page-item {
@@ -52,11 +56,11 @@
     &.is-active {
       a,
       button {
-        color: $white;
-        background-color: $blue;
+        color: colors.$white;
+        background-color: colors.$blue;
 
         &:hover {
-          color: $white;
+          color: colors.$white;
         }
       }
     }
@@ -68,7 +72,7 @@
       padding: 0 4px;
 
       &:hover {
-        color: $blue;
+        color: colors.$blue;
       }
     }
   }

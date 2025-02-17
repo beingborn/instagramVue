@@ -1,8 +1,11 @@
+@use "../constants/colors";
+@use "../constants/z-indexes";
+
 .overlay {
   width: 100%;
   height: 100vh;
-  z-index: $overlay-level;
-  background-color: rgba($color: $primary, $alpha: 0.5);
+  z-index: z-indexes.$overlay-level;
+  background-color: rgba($color: colors.$primary, $alpha: 0.5);
   position: fixed;
   left: 0;
   top: 0;

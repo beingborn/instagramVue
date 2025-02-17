@@ -1,29 +1,32 @@
 <template>
-
   <!-- 배열의 갯수 만큼 얘를 만들어주면 될듯 -->
   <div>
     <div class="post">
-        <div class="post-header">
-            <div class="profile">
-            </div>
-            <span class="profile-name">{{ PostData.name }}</span>
-        </div>
-        <div class="post-body" :style="{backgroundImage : `url(${PostData.postImage})`}"></div>
-        <div class="post-content">
-            <p>{{PostData.likes}}</p>
-            <p><strong>글쓴이아이디</strong> 임시내용</p>
-            <p class="date">May 15</p>
-        </div>
+      <div class="post-header">
+        <div class="profile"></div>
+        <span class="profile-name">{{ PostData.name }}</span>
+      </div>
+      <div
+        class="post-body"
+        :style="{ backgroundImage: `url(${PostData.postImage})` }"
+      ></div>
+      <div class="post-content">
+        <p>{{ PostData.likes }}</p>
+        <p>
+          <strong>{{ PostData.name }}</strong> {{ PostData.content }}
+        </p>
+        <p class="date">{{ PostData.date }}</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-    name : 'Post',
-    props : {
-        PostData : Object,
-    }
+  name: 'Post',
+  props: {
+    PostData: Object,
+  },
 }
 </script>
 
@@ -32,7 +35,7 @@ export default {
   width: 100%;
 }
 .profile {
-  background-image: url("https://picsum.photos/100?random=0");
+  background-image: url('https://picsum.photos/100?random=0');
   width: 30px;
   height: 30px;
   background-size: 100%;
@@ -51,7 +54,7 @@ export default {
   padding: 10px;
 }
 .post-body {
-  background-image: url("https://picsum.photos/600?random=0");
+  background-image: url('https://picsum.photos/600?random=0');
   height: 450px;
   background-position: center;
   background-size: cover;
@@ -65,5 +68,5 @@ export default {
   font-size: 11px;
   color: grey;
   margin-top: -8px;
-} 
+}
 </style>

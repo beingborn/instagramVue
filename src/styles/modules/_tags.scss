@@ -1,7 +1,11 @@
+@use "../constants/colors";
+@use "../mixins/flexbox";
+@use "../mixins/text-style";
+
 // 공통 스타일 정의
 %tag-base {
-  @include inline-flexbox;
-  @include text-style(12);
+  @include flexbox.inline-flexbox;
+  @include text-style.text-style(12);
   height: 20px;
   padding: 0 6px;
   border-radius: 4px;
@@ -10,18 +14,18 @@
 
 .tag-red {
   @extend %tag-base;
-  color: $white;
-  background-color: $red;
+  color: colors.$white;
+  background-color: colors.$red;
 }
 
 .tag-green {
   @extend %tag-base;
-  color: $white;
-  background-color: $green;
+  color: colors.$white;
+  background-color: colors.$green;
 }
 
 .tag-gray {
   @extend %tag-base;
-  color: $secondary;
-  background-color: $border;
+  color: colors.$secondary;
+  background-color: colors.$border;
 }

@@ -1,31 +1,34 @@
+@use "sass:meta";
+@use "../constants/typography";
+
 @mixin text-style-12() {
-  font-size: $font-size-12;
-  line-height: $line-height-12;
-  letter-spacing: $letter-spacing-12;
+  font-size: typography.$font-size-12;
+  line-height: typography.$line-height-12;
+  letter-spacing: typography.$letter-spacing-12;
 }
 
 @mixin text-style-14() {
-  font-size: $font-size-14;
-  line-height: $line-height-14;
-  letter-spacing: $letter-spacing-14;
+  font-size: typography.$font-size-14;
+  line-height: typography.$line-height-14;
+  letter-spacing: typography.$letter-spacing-14;
 }
 
 @mixin text-style-16() {
-  font-size: $font-size-16;
-  line-height: $line-height-16;
-  letter-spacing: $letter-spacing-16;
+  font-size: typography.$font-size-16;
+  line-height: typography.$line-height-16;
+  letter-spacing: typography.$letter-spacing-16;
 }
 
 @mixin text-style-18() {
-  font-size: $font-size-18;
-  line-height: $line-height-18;
-  letter-spacing: $letter-spacing-18;
+  font-size: typography.$font-size-18;
+  line-height: typography.$line-height-18;
+  letter-spacing: typography.$letter-spacing-18;
 }
 
 @mixin text-style-24() {
-  font-size: $font-size-24;
-  line-height: $line-height-24;
-  letter-spacing: $letter-spacing-24;
+  font-size: typography.$font-size-24;
+  line-height: typography.$line-height-24;
+  letter-spacing: typography.$letter-spacing-24;
 }
 
 @mixin text-style($size, $color: false) {
@@ -48,7 +51,7 @@
     @include text-style-24();
   }
 
-  @if (type-of($color) == color) {
+  @if (meta.type-of($color) == color) {
     color: $color;
   }
 }

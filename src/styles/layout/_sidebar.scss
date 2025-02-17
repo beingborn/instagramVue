@@ -1,3 +1,8 @@
+@use "../constants/colors";
+@use "../constants/z-indexes";
+@use "../mixins/flexbox";
+@use "../mixins/text-style";
+
 .sidebar {
   $sidebar-width: 240px;
 
@@ -5,11 +10,11 @@
   left: 0;
   top: 0;
   height: 100vh;
-  z-index: $sidebar-level;
+  z-index: z-indexes.$sidebar-level;
   overflow: scroll;
   width: $sidebar-width;
   padding: 32px 20px;
-  background-color: $white;
+  background-color: colors.$white;
   overscroll-behavior: contain;
   transform: translate3d(-$sidebar-width, 0, 0);
   transition: transform 300ms ease-in-out;
@@ -26,7 +31,7 @@
     padding: 0 12px;
 
     .logo {
-      @include flexbox(start);
+      @include flexbox.flexbox(start);
 
       a {
         display: block;
@@ -41,15 +46,15 @@
 
   &-user,
   &-auth {
-    @include flexbox(start);
+    @include flexbox.flexbox(start);
     height: 88px;
   }
 
   &-user {
     a {
       width: 100%;
-      @include flexbox(start);
-      @include text-style(14, $primary);
+      @include flexbox.flexbox(start);
+      @include text-style.text-style(14, colors.$primary);
     }
 
     .avatar-24 {
@@ -67,7 +72,7 @@
   }
 
   &-auth {
-    @include flexbox(between);
+    @include flexbox.flexbox(between);
 
     a {
       width: 84px;
@@ -76,10 +81,10 @@
 
   &-nav {
     .drawer-menu {
-      border-top: 1px solid $border;
+      border-top: 1px solid colors.$border;
 
       &.is-expert {
-        border-bottom: 1px solid $border;
+        border-bottom: 1px solid colors.$border;
       }
     }
   }
@@ -92,14 +97,14 @@
 
     .user-menu-item {
       a {
-        @include flexbox(start);
-        @include text-style(14, $primary);
+        @include flexbox.flexbox(start);
+        @include text-style.text-style(14, colors.$primary);
         width: 100%;
         height: 36px;
         padding: 0 12px;
 
         &:active {
-          color: $blue;
+          color: colors.$blue;
         }
       }
     }
