@@ -9,6 +9,9 @@
     <img src="./assets/logo.png" class="logo" />
   </div>
 
+  <small>안녕</small>
+
+
   <Container :PostData = "PostData" :step = "step" @update-step="updateStep" :imgUrl = "imgUrl"/>
   <button @click="more()">데이터 가져오기</button>
 
@@ -71,10 +74,14 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss"> 
+
+
+
+
   body {
-  margin: 0;
-}
+    @include text-style(12, $primary);
+  }
 ul {
   padding: 5px;
   list-style-type: none;
@@ -87,6 +94,10 @@ ul {
   left: 0;
   right: 0;
   top: 13px;
+
+  &.is-active {
+    width: 100%;
+  }
 }
 .header {
   width: 100%;

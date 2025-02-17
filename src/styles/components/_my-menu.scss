@@ -1,0 +1,81 @@
+.my-menu {
+  $button-size: 32px;
+  $tooltip-size: 12px;
+  position: relative;
+
+  &-buttons {
+    @include background('./assets/images/img-user-default.png');
+    width: $button-size;
+    height: $button-size;
+    border: 3px solid $white;
+    overflow: hidden;
+    border-radius: 50%;
+    transition: border 200ms ease-in-out;
+
+    &:hover,
+    &.is-active {
+      border-color: $blue;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-content {
+    @include pos-center-x;
+    border-radius: 4px;
+    top: $button-size + $tooltip-size + 8px;
+    box-shadow: $dropdown-shadow;
+
+    &::before,
+    &::after {
+      @include pos-center-x;
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: $tooltip-size solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: $tooltip-size solid transparent;
+      border-left: 10px solid transparent;
+      top: -#{$tooltip-size * 2};
+      content: '';
+    }
+
+    &::before {
+      border-bottom-color: $border;
+    }
+
+    &::after {
+      top: -#{$tooltip-size * 2 - 2px};
+      border-bottom-color: $white;
+    }
+  }
+
+  &-list {
+    padding: 8px;
+    border: 1px solid $border;
+    width: 200px;
+    background-color: $white;
+    border-radius: 4px;
+  }
+
+  &-item {
+    a,
+    button {
+      @include flexbox(start);
+      @include text-style(16, $primary);
+      padding: 0 8px;
+      width: 100%;
+      height: 44px;
+      border-radius: 2px;
+
+      &:hover {
+        background-color: $background;
+      }
+    }
+  }
+}

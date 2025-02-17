@@ -1,0 +1,57 @@
+.gnb-icon-button {
+  $badge-size: 16px;
+
+  @include flexbox;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  font-size: 24px;
+  color: $secondary;
+  transition: color 200ms ease-in-out, background-color 300ms ease-in-out;
+  border-radius: 50%;
+
+  &.is-menu {
+    color: $blue;
+
+    &:active {
+      color: $blue-dark;
+    }
+  }
+
+  &.is-cart {
+    i {
+      position: relative;
+      top: 1px;
+      right: 1px;
+    }
+  }
+
+  // 클릭 순간
+  &:active {
+    color: $primary;
+  }
+
+  .badge {
+    display: block;
+    padding: 0 4px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: $badge-size;
+    height: $badge-size;
+    background-color: $red;
+    font-size: 10px;
+    line-height: 16px;
+    color: $white;
+    text-align: center;
+    letter-spacing: -0.01em;
+    border-radius: $badge-size / 2;
+  }
+
+  @include responsive(T) {
+    &:hover {
+      background: $blue;
+      color: $white;
+    }
+  }
+}

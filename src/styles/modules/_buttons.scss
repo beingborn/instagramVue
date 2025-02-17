@@ -1,0 +1,70 @@
+// styles, sizes, states
+%btn-base {
+  @include inline-flexbox(center, center);
+
+  padding: 0 8px;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: background-color 200ms ease-in-out;
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+// Note: button styles
+.btn-primary {
+  @extend %btn-base;
+  color: $white;
+  background-color: $blue;
+
+  &:not(:disabled):hover {
+    background-color: $blue-dark;
+  }
+}
+
+.btn-secondary {
+  @extend %btn-base;
+  color: $primary;
+  background-color: $border;
+
+  &:not(:disabled):hover {
+    background-color: $tertiary;
+  }
+}
+
+.btn-outlined {
+  @extend %btn-base;
+  color: $blue;
+  background: $white;
+  border: 1px solid $blue;
+
+  &:not(:disabled):hover {
+    background-color: $blue-light;
+  }
+}
+
+.btn-ghost {
+  @extend %btn-base;
+  color: $primary;
+  background: transparent;
+
+  &:not(:disabled):hover {
+    color: $secondary;
+  }
+}
+
+// Note: button sizes : width값 x
+.btn-32 {
+  height: 32px;
+}
+.btn-40 {
+  height: 40px;
+}
+.btn-48 {
+  height: 48px;
+}
+.btn-55 {
+  height: 55px;
+}

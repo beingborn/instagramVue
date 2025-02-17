@@ -1,0 +1,105 @@
+.drawer-menu {
+  $drawer-menu-item-height: 36px;
+  $community-menu-item-length: 8;
+  $store-menu-item-length: 9;
+  $expert-menu-item-length: 2;
+  $drawer-menu-list-padding: 20px;
+
+  @function _calculate-max-content-height($length) {
+    @return $drawer-menu-item-height * $length + $drawer-menu-list-padding;
+  }
+
+  &.is-active {
+    .drawer-menu-button {
+      color: $blue;
+    }
+  }
+  &.is-open {
+    &.is-community {
+      .drawer-menu-content {
+        max-height: _calculate-max-content-height($community-menu-item-length);
+      }
+    }
+    &.is-store {
+      .drawer-menu-content {
+        max-height: $drawer-menu-item-height * $store-menu-item-length +
+          $drawer-menu-list-padding;
+      }
+    }
+    &.is-expert {
+      .drawer-menu-content {
+        max-height: $drawer-menu-item-height * $expert-menu-item-length +
+          $drawer-menu-list-padding;
+      }
+    }
+
+    .drawer-menu-button .ic-chevron {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .drawer-menu-content {
+      max-height: 500px;
+    }
+
+    .drawer-menu-list {
+      padding-bottom: $drawer-menu-list-padding;
+    }
+  }
+
+  &-button {
+    @include text-style(18, $primary);
+    @include flexbox(start);
+    position: relative;
+    font-weight: 700;
+    width: 100%;
+    height: 54px;
+    transition: color 200ms ease-in-out;
+
+    i {
+      &:first-child {
+        position: relative; // TODO CHECK
+        top: 1px;
+        margin-right: 8px;
+        font-size: 24px;
+        color: $primary;
+      }
+    }
+
+    .ic-chevron {
+      @include pos-center-y;
+      right: 8px;
+      font-size: 16px;
+      color: $primary;
+      transition: transform 200ms ease-in-out;
+    }
+  }
+
+  &-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 200ms ease-in-out;
+  }
+
+  &-item {
+    &.is-active {
+      a {
+        color: $blue;
+      }
+    }
+
+    a {
+      @include flexbox(start);
+      @include text-style(14, $primary);
+      font-weight: 700;
+      width: 100%;
+      height: $drawer-menu-item-height;
+      padding: 0 12px;
+      font-weight: 700;
+    }
+  }
+
+  .ic-new {
+    font-size: 16px;
+    color: $red;
+  }
+}
