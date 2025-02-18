@@ -9,6 +9,13 @@
     </ul>
     <img src="./assets/logo.png" class="logo" />
   </div>
+
+  <!-- state를 직접적으로 바꾸기 X => store.js에 부탁  -->
+  <h4>안녕 {{ $store.state.name }}</h4>
+  <!-- store에서 지정한 함수를 실행 -->
+  <button @click="$store.commit('ageIncrease', 10)">나이</button>
+  <h4>{{ $store.state.age }}</h4>
+
   <Container
     :PostData="PostData"
     :step="step"
