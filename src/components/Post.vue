@@ -10,9 +10,10 @@
         :class="PostData.filter"
         class="post-body"
         :style="{ backgroundImage: `url(${PostData.postImage})` }"
+        @click="$store.commit('likeIncrease')"
       ></div>
       <div class="post-content">
-        <p>{{ PostData.likes }}</p>
+        <p>{{ $store.state.likes }}</p>
         <p>
           <strong>{{ PostData.name }}</strong> {{ PostData.content }}
         </p>
@@ -27,6 +28,11 @@ export default {
   name: 'Post',
   props: {
     PostData: Object,
+  },
+  methods: {
+    updateClick() {
+      this.clickCount++
+    },
   },
 }
 </script>
@@ -59,6 +65,7 @@ export default {
   height: 450px;
   background-position: center;
   background-size: cover;
+  cursor: pointer;
 }
 .post-content {
   padding-left: 15px;

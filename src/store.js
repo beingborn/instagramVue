@@ -6,7 +6,8 @@ const store = createStore({
       // state 보관
       name: 'kim',
       age: 11,
-      likes: 30,
+      likes: 31,
+      likeClick: false,
     }
   },
 
@@ -19,6 +20,15 @@ const store = createStore({
     },
     ageIncrease(state, resAge) {
       state.age += resAge
+    },
+    likeIncrease(state) {
+      if (state.likeClick == false) {
+        state.likes++
+        state.likeClick = true
+      } else {
+        state.likes--
+        state.likeClick = false
+      }
     },
   },
 })
