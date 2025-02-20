@@ -12,9 +12,17 @@
 
   <!-- state를 직접적으로 바꾸기 X => store.js에 부탁  -->
   <h4>안녕 {{ $store.state.name }}</h4>
-  <!-- store에서 지정한 함수를 실행 -->
+  <!-- store에서 지정한 함수를 실행 (mutations) -->
   <button @click="$store.commit('ageIncrease', 10)">나이</button>
   <h4>{{ $store.state.age }}</h4>
+
+  <!-- state에서 ajax 요청 받기 => (actions) -->
+  <p>{{ $store.state.more }}</p>
+  <button @click="$store.dispatch('getData')">더보기</button>
+
+  <!-- computed 함수는 이름만 사용 -->
+  <p>{{ now2 }}, {{ counter }}</p>
+  <button @click="counter++">카운터</button>
 
   <Container
     :PostData="PostData"
@@ -50,9 +58,22 @@ export default {
       imgUrl: '',
       writeDetail: '',
       selectedFilter: '',
+      counter: 0,
     }
   },
+
+  // 값을 처음만 실행함. (자원 절약)
+  computed: {
+    now2() {
+      return new Date()
+    },
+  },
+
   methods: {
+    now() {
+      return new Date()
+    },
+
     upload(e) {
       let file = e.target.files
       let url = URL.createObjectURL(file[0])
