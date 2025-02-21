@@ -11,17 +11,18 @@
   </div>
 
   <!-- state를 직접적으로 바꾸기 X => store.js에 부탁  -->
-  <h4>안녕 {{ $store.state.name }}</h4>
+  <h4>안녕 {{ name }}</h4>
   <!-- store에서 지정한 함수를 실행 (mutations) -->
-  <button @click="$store.commit('ageIncrease', 10)">나이</button>
-  <h4>{{ $store.state.age }}</h4>
+  <button @click="ageIncrease(10)">나이</button>
+  <h4>{{ age }}</h4>
+  <p>{{ likes }}</p>
 
   <!-- state에서 ajax 요청 받기 => (actions) -->
   <p>{{ $store.state.more }}</p>
   <button @click="$store.dispatch('getData')">더보기</button>
 
   <!-- computed 함수는 이름만 사용 -->
-  <p>{{ now2 }}, {{ counter }}</p>
+  <p>{{ counter }}</p>
   <button @click="counter++">카운터</button>
 
   <Container
@@ -44,6 +45,7 @@
 import Container from './components/Container.vue'
 import PostData from './assets/postData.js'
 import axios from 'axios'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   name: 'App',
@@ -63,16 +65,22 @@ export default {
   },
 
   // 값을 처음만 실행함. (자원 절약)
+  // mapState
   computed: {
-    now2() {
-      return new Date()
+    name() {
+      return this.$store.state.name
     },
+
+    // 축약 문법
+    ...mapState(['name', 'age', 'likes']),
+
+    // 이름을 짓고 싶다면 => 축약 문법
+    // ...mapState({'작명' : 'name'})
   },
 
   methods: {
-    now() {
-      return new Date()
-    },
+    // mutation 한번에 쓸려면
+    ...mapMutations(['setMore', 'ageIncrease']),
 
     upload(e) {
       let file = e.target.files
