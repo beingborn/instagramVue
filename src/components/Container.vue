@@ -2,6 +2,7 @@
   <button @click="updateClick(0)">포스트</button>
   <button @click="updateClick(1)">필터</button>
   <button @click="updateClick(2)">글작성</button>
+  <button @click="updateClick(3)">마이페이지</button>
 
   <div v-if="step == 0">
     <Post :PostData="PostData[i]" v-for="(post, i) in PostData" :key="i" />
@@ -40,18 +41,24 @@ write!</textarea
     </div>
   </div>
 
+  <div v-if="step == 3">
+    <MyPage />
+  </div>
+
   <!-- 글 발행 -->
 </template>
 
 <script>
 import Post from './Post.vue'
 import FilterBox from './FilterBox.vue'
+import MyPage from './MyPage.vue'
 
 export default {
   name: 'Container',
 
   data() {
     return {
+      follower: follower,
       filters: [
         'aden',
         '_1977',
@@ -88,6 +95,7 @@ export default {
   components: {
     Post,
     FilterBox,
+    MyPage,
   },
 
   props: {
