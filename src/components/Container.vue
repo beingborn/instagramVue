@@ -58,7 +58,6 @@ export default {
 
   data() {
     return {
-      follower: follower,
       filters: [
         'aden',
         '_1977',
