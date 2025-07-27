@@ -1,29 +1,19 @@
-# vue-project
+# 코딩애플 Vue3 인스타그램 프로젝트   
+> 활용 기술 : vue3
 
-This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+**프로젝트 상세**  
+이 프로젝트는 코딩애플 Vue3 프로젝트입니다.
 
-## Project Setup
+  - **Vue 컴포넌트 작업**
+  - **이미지 필터 기능 구현**
+  - **게시물 추가, 수정 기능 구현**
 
-```sh
-npm install
-```
 
-### Compile and Hot-Reload for Development
 
-```sh
-npm run dev
-```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+## Reference
+- [Git README 템플릿](https://github.com/ohahohah/readme-template) : Git README 템플릿
